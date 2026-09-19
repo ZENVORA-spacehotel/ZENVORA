@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZENVORA | Mars Space Colony</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#05060b;
+    color:white;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(5,6,11,0.65);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-family:'Orbitron',sans-serif;
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:5px;
+}
+
+.logo span{
+    color:#ff5938;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff6848;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:130px 8% 80px;
+    overflow:hidden;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size:100px 100px, 170px 170px;
+    background-position:0 0, 40px 80px;
+    opacity:.3;
+    animation:starsMove 30s linear infinite;
+}
+
+@keyframes starsMove{
+    from{transform:translateY(0)}
+    to{transform:translateY(-100px)}
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:55%;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid rgba(255,100,70,.5);
+    padding:9px 17px;
+    border-radius:30px;
+    color:#ff7657;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(50px,8vw,105px);
+    line-height:.95;
+    letter-spacing:5px;
+}
+
+.hero h1 span{
+    color:#ff5a3c;
+}
+
+.hero p{
+    max-width:600px;
+    margin-top:30px;
+    color:#a9adb8;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+}
+
+.btn{
+    padding:15px 28px;
+    border-radius:4px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.primary{
+    background:#ff5938;
+    color:white;
+}
+
+.primary:hover{
+    background:#ff7657;
+    transform:translateY(-3px);
+}
+
+.secondary{
+    border:1px solid #555;
+    color:white;
+}
+
+.secondary:hover{
+    border-color:#ff5938;
+    color:#ff7657;
+}
+
+/* ================= MARS ================= */
+
+.mars-container{
+    position:absolute;
+    right:-80px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.mars{
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    position:relative;
+    background:
+        radial-gradient(circle at 35% 30%, #f58b62 0 4%, transparent 5%),
+        radial-gradient(circle at 65% 65%, #722b22 0 8%, transparent 9%),
+        radial-gradient(circle at 30% 70%, #9d3e2b 0 7%, transparent 8%),
+        radial-gradient(circle at 65% 25%, #c55235 0 5%, transparent 6%),
+        linear-gradient(135deg,#d96b49,#68271f);
+    box-shadow:
+        -40px -20px 100px rgba(255,100,60,.2),
+        inset -80px -30px 100px rgba(0,0,0,.7);
+    animation:floatMars 7s ease-in-out infinite;
+}
+
+@keyframes floatMars{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-20px)}
+}
+
+.mars:after{
+    content:"";
+    position:absolute;
+    inset:-20px;
+    border-radius:50%;
+    border:1px solid rgba(255,120,90,.15);
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:110px 8%;
+    position:relative;
+}
+
+.section-title{
+    max-width:750px;
+    margin-bottom:60px;
+}
+
+.section-title small{
+    color:#ff6748;
+    letter-spacing:3px;
+    font-size:11px;
+}
+
+.section-title h2{
+    font-family:'Orbitron',sans-serif;
+    font-size:45px;
+    margin-top:15px;
+}
+
+.section-title p{
+    color:#999;
+    line-height:1.8;
+    margin-top:20px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.stat{
+    padding:35px 20px;
+    border-right:1px solid #222;
+}
+
+.stat:last-child{
+    border-right:none;
+}
+
+.stat h3{
+    font-family:'Orbitron',sans-serif;
+    color:#ff6344;
+    font-size:32px;
+}
+
+.stat p{
+    color:#888;
+    font-size:12px;
+    margin-top:8px;
+    letter-spacing:1px;
+}
+
+/* ================= HABITAT ================= */
+
+.habitat{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.habitat-visual{
+    height:500px;
+    border:1px solid #282828;
+    border-radius:20px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center,#29100d,#08090e 65%);
+}
+
+.tunnel{
+    position:absolute;
+    width:70%;
+    height:55%;
+    left:15%;
+    top:23%;
+    border:25px solid #777;
+    border-radius:50%;
+    box-shadow:
+        0 0 0 20px #25262b,
+        inset 0 0 50px black;
+}
+
+.core{
+    position:absolute;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:#ff5d3d;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 50px rgba(255,80,50,.5);
+}
+
+.habitat-info h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.habitat-info p{
+    color:#999;
+    line-height:1.9;
+    margin-bottom:30px;
+}
+
+.features{
+    display:grid;
+    gap:18px;
+}
+
+.feature{
+    display:flex;
+    gap:15px;
+    padding:20px;
+    background:#0d0f15;
+    border:1px solid #1e2028;
+    border-radius:10px;
+}
+
+.feature-icon{
+    font-size:22px;
+}
+
+.feature h4{
+    font-size:14px;
+}
+
+.feature p{
+    font-size:12px;
+    margin-top:5px;
+    margin-bottom:0;
+}
+
+/* ================= FACILITIES ================= */
+
+.facilities{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:35px;
+    background:linear-gradient(145deg,#101219,#08090d);
+    border:1px solid #20222a;
+    border-radius:15px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ff5c3e;
+}
+
+.card .icon{
+    font-size:35px;
+    margin-bottom:25px;
+}
+
+.card h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#888;
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience{
+    background:
+        linear-gradient(rgba(5,6,11,.88),rgba(5,6,11,.95)),
+        radial-gradient(circle at 80% 50%,#5c2117,transparent 40%);
+}
+
+.experience-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.experience-card{
+    min-height:260px;
+    padding:35px;
+    border-radius:15px;
+    border:1px solid #25262d;
+    background:rgba(15,16,23,.7);
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
+}
+
+.experience-card span{
+    color:#ff6848;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.experience-card h3{
+    font-family:'Orbitron',sans-serif;
+    margin:10px 0;
+    font-size:24px;
+}
+
+.experience-card p{
+    color:#999;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* ================= JOURNEY ================= */
+
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    position:relative;
+    padding:30px;
+    border-left:2px solid #ff5938;
+}
+
+.step-number{
+    color:#ff5938;
+    font-family:'Orbitron',sans-serif;
+    font-size:12px;
+}
+
+.step h3{
+    margin:15px 0 10px;
+}
+
+.step p{
+    color:#888;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    text-align:center;
+    padding:140px 8%;
+    background:
+        radial-gradient(circle at center,#33130e 0%,#08090e 45%,#05060b 80%);
+}
+
+.cta h2{
+    font-family:'Orbitron',sans-serif;
+    font-size:50px;
+}
+
+.cta p{
+    color:#999;
+    max-width:600px;
+    margin:20px auto 35px;
+    line-height:1.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:40px 8%;
+    border-top:1px solid #202127;
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:12px;
+}
+
+footer strong{
+    color:#aaa;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .mars-container{
+        opacity:.25;
+        right:-180px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat{
+        border-bottom:1px solid #222;
+    }
+
+    .habitat,
+    .experience-grid{
+        grid-template-columns:1fr;
+    }
+
+    .facilities{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .timeline{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:80px 6%;
+    }
+
+    .hero{
+        padding:120px 6% 70px;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .mars{
+        width:350px;
+        height:350px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .facilities,
+    .timeline{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .cta h2{
+        font-size:34px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <div class="logo">
+        ZEN<span>VORA</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#habitat">HABITAT</a></li>
+        <li><a href="#facilities">FACILITIES</a></li>
+        <li><a href="#journey">JOURNEY</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="stars"></div>
+
+    <div class="hero-content">
+
+        <div class="tag">
+            MARS • 2040+ CONCEPT
+        </div>
+
+        <h1>
+            LIVE<br>
+            BEYOND<br>
+            <span>EARTH.</span>
+        </h1>
+
+        <p>
+            Welcome to ZENVORA — a next-generation underground
+            Mars habitat designed to create a safe, sustainable
+            and extraordinary human settlement on the Red Planet.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#habitat" class="btn primary">
+                EXPLORE ZENVORA
+            </a>
+
+            <a href="#facilities" class="btn secondary">
+                DISCOVER MORE
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="mars-container">
+        <div class="mars"></div>
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+    <div class="stat">
+        <h3>4,000</h3>
+        <p>RESIDENT CAPACITY</p>
+    </div>
+
+    <div class="stat">
+        <h3>24.6h</h3>
+        <p>MARTIAN DAY</p>
+    </div>
+
+    <div class="stat">
+        <h3>01</h3>
+        <p>PLANET — MARS</p>
+    </div>
+
+    <div class="stat">
+        <h3>∞</h3>
+        <p>HUMAN POTENTIAL</p>
+    </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <small>01 / THE VISION</small>
+
+        <h2>A NEW HOME ON MARS</h2>
+
+        <p>
+            ZENVORA is envisioned as a self-sustaining Mars
+            settlement where people can live, work, research
+            and experience life beyond Earth.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HABITAT ================= -->
+
+<section id="habitat">
+
+    <div class="habitat">
+
+        <div class="habitat-visual">
+
+            <div class="tunnel"></div>
+
+            <div class="core"></div>
+
+        </div>
+
+
+        <div class="habitat-info">
+
+            <h3>UNDERGROUND<br>BY DESIGN</h3>
+
+            <p>
+                ZENVORA is placed beneath the Martian surface.
+                The underground architecture provides an additional
+                protective layer against radiation, extreme
+                environmental conditions and surface hazards.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">🛡️</div>
+
+                    <div>
+                        <h4>PROTECTED HABITATS</h4>
+                        <p>
+                            Layered underground living spaces
+                            designed for long-term habitation.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">💧</div>
+
+                    <div>
+                        <h4>CLOSED WATER SYSTEM</h4>
+                        <p>
+                            Water is collected, purified,
+                            reused and recycled throughout ZENVORA.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">🌱</div>
+
+                    <div>
+                        <h4>CONTROLLED AGRICULTURE</h4>
+                        <p>
+                            Indoor growing areas provide food
+                            while supporting the habitat's life systems.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FACILITIES ================= -->
+
+<section id="facilities">
+
+    <div class="section-title">
+
+        <small>02 / LIFE AT ZENVORA</small>
+
+        <h2>BUILT FOR HUMAN LIFE</h2>
+
+        <p>
+            Every major system is integrated into the colony
+            to support a healthy and sustainable community.
+        </p>
+
+    </div>
+
+
+    <div class="facilities">
+
+        <div class="card">
+
+            <div class="icon">🏨</div>
+
+            <h3>SPACE HOTEL</h3>
+
+            <p>
+                Premium accommodation for visitors,
+                researchers and explorers arriving at ZENVORA.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🌱</div>
+
+            <h3>BIODOMES</h3>
+
+            <p>
+                Controlled agricultural environments
+                for growing fresh food inside the colony.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💧</div>
+
+            <h3>WATER CENTER</h3>
+
+            <p>
+                Advanced water recovery and recycling
+                systems minimize resource loss.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">⚡</div>
+
+            <h3>POWER CORE</h3>
+
+            <p>
+                Reliable energy infrastructure supports
+                life support, research and daily operations.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔬</div>
+
+            <h3>RESEARCH LABS</h3>
+
+            <p>
+                Scientific facilities for studying Mars,
+                biology, geology and future technologies.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🚀</div>
+
+            <h3>SPACEPORT</h3>
+
+            <p>
+                A dedicated transportation hub connects
+                ZENVORA with Earth and other future settlements.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section class="experience">
+
+    <div class="section-title">
+
+        <small>03 / EXPERIENCE</small>
+
+        <h2>THE ZENVORA EXPERIENCE</h2>
+
+        <p>
+            Life on Mars doesn't have to mean giving up
+            exploration, comfort or human connection.
+        </p>
+
+    </div>
+
+
+    <div class="experience-grid">
+
+        <div class="experience-card">
+
+            <span>01 — OBSERVATION</span>
+
+            <h3>MARTIAN HORIZON</h3>
+
+            <p>
+                Experience the landscape of Mars through
+                protected observation galleries.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <span>02 — EXPLORATION</span>
+
+            <h3>RED PLANET TOURS</h3>
+
+            <p>
+                Explore the surrounding Martian environment
+                using specially designed surface vehicles.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <span>03 — COMMUNITY</span>
+
+            <h3>THE CENTRAL HUB</h3>
+
+            <p>
+                A social heart of ZENVORA where residents
+                meet, eat, learn and exchange ideas.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <span>04 — SCIENCE</span>
+
+            <h3>DISCOVER MARS</h3>
+
+            <p>
+                Participate in research and learn about
+                humanity's newest frontier.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= JOURNEY ================= -->
+
+<section id="journey">
+
+    <div class="section-title">
+
+        <small>04 / THE JOURNEY</small>
+
+        <h2>FROM EARTH TO ZENVORA</h2>
+
+        <p>
+            A future journey that begins on Earth
+            and ends at humanity's new frontier.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <span class="step-number">STEP 01</span>
+
+            <h3>EARTH</h3>
+
+            <p>
+                Preparation, training and launch from Earth.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span class="step-number">STEP 02</span>
+
+            <h3>TRANSIT</h3>
+
+            <p>
+                Travel across interplanetary space toward Mars.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span class="step-number">STEP 03</span>
+
+            <h3>MARS</h3>
+
+            <p>
+                Arrival at the ZENVORA landing and transport zone.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span class="step-number">STEP 04</span>
+
+            <h3>ZENVORA</h3>
+
+            <p>
+                Enter the underground settlement and begin
+                your life on the Red Planet.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <h2>THE FUTURE HAS A NEW HOME.</h2>
+
+    <p>
+        ZENVORA represents a vision of human life beyond Earth —
+        combining architecture, science, sustainability and exploration.
+    </p>
+
+    <a href="#home" class="btn primary">
+        ENTER ZENVORA
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+        <strong>ZENVORA</strong> — MARS SPACE COLONY
+    </div>
+
+    <div>
+        CONCEPT PROJECT • HUMANITY BEYOND EARTH
+    </div>
+
+</footer>
+
+
+<script>
+
+/* ================= NAVBAR SCROLL EFFECT ================= */
+
+window.addEventListener("scroll", function(){
+
+    const nav = document.querySelector("nav");
+
+    if(window.scrollY > 50){
+        nav.style.background = "rgba(5,6,11,0.92)";
+    }
+    else{
+        nav.style.background = "rgba(5,6,11,0.65)";
+    }
+
+});
+
+
+/* ================= BUTTON EFFECT ================= */
+
+document.querySelectorAll(".btn").forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        this.style.transform = "scale(.96)";
+
+        setTimeout(() => {
+            this.style.transform = "";
+        },150);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
